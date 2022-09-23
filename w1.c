@@ -42,6 +42,8 @@ int cut_word(char *s, char **t)
 	return count;
 }
 
+
+//C入口函数
 int main(void)
 {
 	int count = 0, i, j;
@@ -109,3 +111,4 @@ int main(void)
 #endif	
 	return 0;
 }
+
