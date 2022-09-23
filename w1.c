@@ -109,8 +109,4 @@ int main(void)
 #endif	
 	return 0;
 }
-<<<<<<< HEAD
 123
-=======
-123
->>>>>>> dev
