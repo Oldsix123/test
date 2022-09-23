@@ -1,5 +1,3 @@
-#2nd.txt
-#repository 2nd.txt
 linux桌面环境认识：
 	
 	1 打开终端：
