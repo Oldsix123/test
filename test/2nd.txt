@@ -1,0 +1,213 @@
+linux桌面环境认识：
+	
+	1 打开终端：
+		1> : 右键 => 打开终端
+		[root用户@localhost主机名 ~当前用户工作目录]# pwd
+		/root
+
+		2> : alt + F2 => gnome-terminal
+	2 关闭终端
+		exit
+	
+	3 打开多个标签
+		ctrl + shift + t
+	4 切换标签
+		alt + num
+	5 放大字体
+		ctrl + shift + +
+	6 缩小字体
+		ctrl + -
+		
+		永久有效
+			编辑 => 当前配置文件
+	7 最大化窗口
+		alt + F10
+	8 最小化
+		alt + F9
+	
+	9 关机
+		shutdown -h now 
+		init 0
+
+	10 重启
+		shutdown -r now
+		init 6
+		reboot
+	11 查看系统版本
+		[root@localhost test]# lsb_release -a
+		LSB Version:
+		:core-3.1-ia32:core-3.1-noarch:graphics-3.1-ia32:graphics-3.1-noarch
+		Distributor ID: RedHatEnterpriseServer
+		Description:    Red Hat Enterprise Linux Server release 5.5 (Tikanga)
+		Release:        5.5			系统版本号
+		Codename:       Tikanga
+	12 系统位数：
+		[root@localhost test]# uname -m
+		i686			表示32位系统
+		x86_64			表示64位系统
+
+	13 linux内核版本
+		www.kernel.org
+
+		[root@localhost test]# uname -r
+		2.6.18-194.el5
+		表示x.y.z
+			x : 表示主版本号  系统架构发生变量才会改变
+			y : 表示次版本号
+				奇数：测试版本
+				偶数：稳定版本
+			z : 表示释放版本号
+				
+	14 其他系统信息
+		uname -a
+		[root@localhost test]# uname -a
+		Linux localhost.localdomain 2.6.18-194.el5 #1 SMP Tue Mar 16 21:52:43
+		EDT 2010 i686 i686 i386 GNU/Linux
+
+====================================================
+根文件系统解析：
+	/ : 表示根目录
+		1 所有的文件都是从根开始
+		2 所有的设备皆文件
+	
+	bin ： 用于保存基本命令(普通用户命令)
+	boot ：保存内核镜像文件
+		vmlinuz-2.6.18-194.el5
+	
+	dev : 保存设备类文件目录
+		字符设备类文件：c
+		块设备类文件：	b
+	etc : 配置文件目录
+		/etc/sysconfig/network-scripts/ifcfg-eth0 网卡配置信息
+		/etc/passwd
+
+	home	：表示普通用户家目录
+	root	: 表示管理员家目录
+		区分不同的用户是通过用户uid来区分
+			[root@localhost test]# id root
+			uid=0(root) gid=0(root)
+			groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel)
+			[root@localhost test]# id tom
+			uid=500(tom) gid=500(tom) groups=500(tom)
+
+	lib ：表示库存放路径
+		.so : 表示动态库
+		.a  : 表示静态库
+			
+	media ： 表示默认挂在U盘 硬盘 光盘
+	mnt   ： 表示默认挂在目录
+	opt		：表示扩张包存放目录
+	proc   	： 表示存放进程
+		cat /proc/cpuinfo ： 表示cpu基本信息
+		cat /proc/meminfo :  表示内存信息
+		free
+
+	sys		： 虚拟目录  驱动设备模块
+
+	sbin	： 存放管理员命令
+	
+	selinux ： 安全包存放目录
+
+	tftpboot ： tftp共享文件目录
+	tmp		： 表示临时目录
+	usr		： 用户安装目录
+		
+=================================================
+
+windows : keing04 => 11223344
+
+	windows + r => cmd
+	
+	ipconfig /all  显示所有网卡信息
+	
+	192.168.0.121
+
+	ping 192.168.0.121
+
+linux :
+	service network restart  : 表示重启网络服务
+
+	ifconfig   ： 表示显示所往网卡信息
+
+	ping 192.168.0.254 -c 3 : 测试是否可以ping通
+		ctrl + c : 终止命令执行
+
+	如果网络ping不通问题
+		1 是否桥接
+		2 网卡是否激活
+			system-config-network
+		3 百度	
+
+
+
+
+下载课件：
+	1 检测网络是否连通
+		ping 192.168.0.254 -c 3
+	2 查看共享目录
+		[root@localhost test]# showmount -e 192.168.0.254
+		Export list for 192.168.0.254:
+		/tools       *		存放公共资源
+		/28_course   *		表示课件
+		/28_homework *		表示作业
+			254_张三
+	3 挂载共享课件到本机
+		mount 192.168.0.254:/28_course /mnt
+		
+	4 拷贝课件到本机
+		mkdir /filename
+		cp /mnt/* /filename/ -rf
+
+	5 查看文件
+		cd /filename
+		vim 1st.txt
+	6 退出：
+		:q => entern
+======================================================
+/*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*/
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
