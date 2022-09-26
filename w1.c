@@ -4,7 +4,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-#define MAX 10
 int my_atoi(char *s)
 {
 	int num = 0;
